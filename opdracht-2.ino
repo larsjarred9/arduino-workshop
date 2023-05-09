@@ -1,5 +1,4 @@
 const int pins[] = {12, 11, 10, 9, 8, 7, 6};
-const int pins2[] = {6, 7, 8, 9, 10, 11, 12};
 
 void setup() {
   // Defineer pins
@@ -10,13 +9,13 @@ void setup() {
 }
 
 void loop() {
-  // Roep blinkLights aan
+  // Roep blinkLight functie op met 0.25 seconden delay en 0.15 seconden delay
   blinkLights(250, 150);
 }
 
-// Blinklights functie
 void blinkLights(int on, int off) {
-  // Loop door de pins heen
+  
+  // Postitieve loop
   for(int pin : pins) {
     digitalWrite(pin, HIGH);
     delay(on);
@@ -24,11 +23,12 @@ void blinkLights(int on, int off) {
     delay(off);
   }
 
-  // Loop door de pins heen
-  for(int pin : pins2) {
-    digitalWrite(pin, HIGH);
+  // Negatieve loop
+  for (int y = 7; y > 0; y--) {
+    digitalWrite(pins[y], HIGH);
     delay(on);
-    digitalWrite(pin, LOW);
+    digitalWrite(pins[y], LOW);
     delay(off);
   }
+ 
 }
